@@ -8,4 +8,4 @@ class Classifier(object):
         pass
 
     def classify(self, text):
-        pass
+        return False
