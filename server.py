@@ -15,17 +15,17 @@ class ClassificationHandler(tornado.web.RequestHandler):
         return bool(self.classifier.classify(text))
 
     def get(self, text):
-        self.write(str(_is_clickbait(text)))
+        self.write(str(self._is_clickbait(text)))
 
     def post(self):
-        self.write(str(_is_clickbait(text)))
+        self.write(str(self._is_clickbait(text)))
 
 def make_app():
     classifier = Classifier()
 
     return tornado.web.Application([
         (r'/', MainHandler),
-        (r'/classify/(*)', ClassificationHandler, dict(classifier=classifier))
+        (r'/classify/(\w+)', ClassificationHandler, dict(classifier=classifier))
     ])
 
 if __name__ == "__main__":
