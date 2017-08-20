@@ -1,0 +1,2 @@
+model_checkpoint_path: "clickbait_model.ckpt"
+all_model_checkpoint_paths: "clickbait_model.ckpt"
